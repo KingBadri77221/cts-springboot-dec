@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="jdbcAccountRepo" class="com.example.mts.repository.JdbcAccountRepository">
+	</bean>
+	
+	<bean id="hibAccountRepo" class="com.example.mts.repository.HibAccountRepository">
+	</bean>
+
+	<bean id="txrService" class="com.example.mts.service.TxrServiceImpl">
+		<constructor-arg ref="jdbcAccountRepo"/>
+	</bean>
+
+
+</beans>
