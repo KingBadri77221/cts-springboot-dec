@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.boot.model.Product;
@@ -28,7 +29,7 @@ public class ProductRepositoryIntegrationTest {
 
 	@Test
 	public void findAll() {
-		List<Product> products = productRepository.findAll();
+		List<Product> products = productRepository.findAll(new PageRequest(0, 10)).getContent();
 		assertThat(products.size(), is(greaterThanOrEqualTo(2)));
 	}
 
